@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Template.css">
+  <script src="Fudge/FudgeCore.js"></script>
+  <script src="FudgeStory/FudgeStory.js"></script>
+  <script src="./Build/Template.js"></script>
+  <title>Fudge Story Template</title>
+  <splash src="Images/Splash.png" />
+</head>
+
+<body>
+
+
+  <scene>
+    <canvas>
+    </canvas>
+    <div id= "displayText">PRESS A
+    </div>
+    <meter class="lifeBars" id="lifeProt" value="5" min="0" max="5"></meter>
+    <meter class="lifeBars" id="lifeSera" value="5" min="0" max="5"></meter>
+
+
+    
+
+    <img src="Images/Items/birth_certificate.png" alt="" id="birthCert">
+    <img src="Images/Items/oldCalendar.png" alt="" id="oldCal">
+    <!--     <img src="Images/Items/golden_comb.png" alt="" id="goldenComb">
+    <div id="items"></div>
+    -->
+    <speech>
+      <name></name>
+      <content></content>
+    </speech>
+    <dialog type="inventory">
+      <button type="button">close</button>
+      <ul>
+        <!-- <li>a description could be written in here</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li> -->
+      </ul>
+    </dialog>
+    <!--    <dialog type="text">
+      The content of a page of text for reading
+    </dialog> -->
+    <!-- Aisaka Meterbar -->
+    <!-- <div type="interface">
+      <input id="scoreForAisaka" type="text" value="Aisaka" disabled>
+      <-- für value der Skala; Füllung 
+      <meter id="aisakaMeter" name="aisakaScore" min="0" max="100" disabled></meter>
+    </div> -->
+  </scene>
+
+  <dialog type="splash" open>
+    <img id="FudgeStoryLogo" theme="dark" />
+    <p id="vstitle">
+      "The Red Death"
+    </p>
+  </dialog>
+
+
+
+</body>
+
+</html>

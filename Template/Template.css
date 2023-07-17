@@ -1,0 +1,277 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  background-color: black;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 2.3vmin;
+  color: rgb(240, 18, 103);
+  user-select: none;
+}
+
+scene {
+  width: 1280px;
+  height: 720px;
+  display: inline-block;
+  position: absolute;
+}
+
+canvas {
+  min-width: 100%;
+  height: 100%;
+}
+
+dialog[type=splash] {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("Images/Backgrounds/starry.gif");
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+dialog[type=splash]>img#FudgeStoryLogo {
+  width: 60%;
+  border-radius: 5vh;
+}
+dialog[type=splash]>p#vstitle {
+  font-family:'Courier New', Courier, monospace;
+  font-size: xx-large;
+  margin: 50px;
+  padding: 25px;
+  border-radius: 3vw;
+  border-color: rgb(0, 0, 0);
+  border-width: 10px;
+  border-style: double;
+  background-color: rgba(157, 157, 157,0.7);
+}
+
+
+/***** SPEECH, CONTENT, NAMES *****/
+speech {
+  position: absolute;
+  display: block;
+  padding: 20px;
+  margin: 2vw;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.955);
+  height: 15%;
+  border: solid rgb(199, 199, 199);
+  border-radius: 10px;
+}
+
+speech content {
+  color: rgb(208, 201, 211);
+  font-size: 1.7vmin;
+  position: absolute;
+  left: 20px;
+  font-family: Lucida Sans, Helvetica, Arial, sans-serif
+}
+
+speech name {
+  font-size: 2vmin;
+  font-family: 'DePixel', sans-serif;
+  display: block;
+  color: rgb(164, 119, 190);
+  margin-bottom: 10px;
+}
+
+dialog.gameMenu {
+  
+  height: 35px;
+  border: solid rgb(199, 199, 199);
+  border-radius: 10px;
+  text-align: center;
+  list-style-type: none;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: rgba(53, 10, 94, 0.866);
+}
+dialog.gameMenu> button {
+  margin: 5px;
+  background-color: rgba(149, 96, 200, 0.508);
+  color: azure;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-family: Lucida Sans, Helvetica, Arial, sans-serif;
+  border: solid rgb(199, 199, 199);
+  border-radius: 10px;
+}
+dialog.gameMenu> button:hover {
+  background-color: rgba(212, 190, 233, 0.508);
+  color: rgb(122, 39, 190);
+}
+
+dialog.choices {
+  background-color: rgba(33, 5, 33, 0.73);
+  border: none;
+  width: 270px;
+  text-align: center;
+  padding: 30px;
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+
+}
+dialog.choices> button {
+  margin: 5px;
+  background-color: rgba(149, 96, 200, 0.508);
+  color: azure;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-family: Lucida Sans, Helvetica, Arial, sans-serif;
+  border: solid rgb(199, 199, 199);
+  border-radius: 10px;
+}
+dialog.choices> button:hover {
+  background-color: rgba(212, 190, 233, 0.508);
+  color: rgb(122, 39, 190);
+}
+
+input {
+  background-color: black;
+  color: aliceblue;
+  border: 2px solid;
+  border-color: aqua;
+  border-radius: 5px;
+}
+
+/***** METER BAR *****/
+meter::-webkit-meter-bar {
+  background-color: #ececec;
+}
+
+meter[id="aisakaMeter"] {
+  position: absolute;
+  transform:rotate(-90deg);
+  bottom: 50%;
+  left: -14%;
+  width: 35%;
+  height: 10%;
+}
+
+meter[id="aisakaMeter"]::-webkit-meter-optimum-value {
+  background-image: linear-gradient(
+    90deg, 
+    #8bcf69 5%, 
+    #e6d450 5%,
+    #e6d450 15%,
+    #f28f68 15%,
+    #f28f68 55%,
+    #cf82bf 55%,
+    #cf82bf 95%,
+    #719fd1 95%,
+    #719fd1 100%
+  );
+  /* background-color: #719fd1; */
+}
+
+input[id="scoreForAisaka"] {
+  color: rgb(255, 248, 253);
+  background-color:rgb(155, 42, 95);
+  font-size: 11pt;
+  position: absolute;
+  left: 1.2%;
+  bottom: 19.5%;
+  width: 4%;
+}
+
+/* Items */
+#goldenComb {
+  z-index: 2;
+  position: absolute;
+  top: 13%;
+  left: 2%;
+  width: 30px;
+}
+
+#vase {
+  z-index: 2;
+  position: absolute;
+  top: 39%;
+  left: 24%;
+  width: 130px;
+}
+
+#plank {
+  z-index: 2;
+  position: absolute;
+  top: 62%;
+  left: 43%;
+  width: 180px;
+}
+
+#birthCert {
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#rightBook {
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  left: 70%;
+}
+
+#oldCal {
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-68%);
+}
+
+#calendar {
+  z-index: 2;
+  position: absolute;
+  top: 13%;
+  left: 30%;
+}
+
+#displayText {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-68%);
+  background-color: #56565650;
+  padding: 15px 30px 25px;
+  border-radius: 5px;
+  border: 3px solid black ;
+}
+
+.lifeBars{
+  position: absolute;
+  top: 11%;
+  transform: translate(-50%,-50%);
+  width: 100px;
+}
+
+#lifeProt{
+  z-index: -1;
+  left: 20%;
+  
+}
+
+#lifeSera{
+  z-index: -1;
+  left: 80%;
+  ;
+}
+
+
+
+
+
+
