@@ -347,7 +347,18 @@ var Template;
         buttonFunctionalities("Close");
         let scenes = [
             // CHAPTER 1
-            /* */ { scene: Template.four_fightInTown, id: "fight", name: "Fight" },
+            { scene: Template.one_villageEntrance, name: "Arrival in the village" },
+            { scene: Template.one_familyHouse, name: "At the Family House" },
+            // CHAPTER 2
+            { scene: Template.two_villageEntrance, id: "meetInBetween", name: "The Items" },
+            { scene: Template.two_abandonedHouse, id: "oldHouse", name: "Getting the comb" },
+            { scene: Template.two_oldTownHall, id: "certificate", name: "Getting the birth Certificate" },
+            // CHAPTER 3
+            //{ scene: three_villageEntrance, name: "Going back to Town" },
+            { scene: Template.three_insideFamilyHouse, id: "goBack", name: "Choice to help, kill or wait" },
+            // CHAPTER 4
+            { scene: Template.four_insideFamilyHouse, id: "helpProcedure", name: "Fightorwhat" },
+            { scene: Template.four_fightInTown, id: "fight", name: "Fight" },
             // CHAPTER 5
             { scene: Template.five_villageEntrance, name: "Aftermath" },
             // END SCENE
@@ -2008,15 +2019,12 @@ var Template;
         switch (fightResult) {
             case resultFight.won:
                 console.log("Won");
-                Template.ƒS.Sound.fade(Template.sound.vicotrySound, 0.4, 1);
                 return "end_seven";
             case resultFight.killedHer:
                 console.log("Killed her");
-                Template.ƒS.Sound.fade(Template.sound.femaleDeatchCry, 0.8, 1);
                 return "end_five";
             case resultFight.died:
                 console.log("Died");
-                Template.ƒS.Sound.fade(Template.sound.playerDeatchCry, 0.4, 1);
                 return "end_six";
         }
     }
@@ -2324,6 +2332,7 @@ var Template;
         console.log("end_five ");
         Template.ƒS.Speech.hide();
         Template.ƒS.Sound.fade(Template.sound.atmo1, 0.05, 1, true);
+        Template.ƒS.Sound.fade(Template.sound.femaleDeatchCry, 0.8, 1);
         await Template.ƒS.Character.animate(Template.characters.seraphina, Template.characters.seraphina.pose.monster, Template.slideInAnimation(70, 100, 70, 200));
         await Template.ƒS.Speech.tell(Template.characters.char1, "NOOOO");
         await Template.ƒS.Speech.tell(Template.characters.char1, "YOU KILLED HER!!");
@@ -2421,6 +2430,7 @@ var Template;
         /* ƒS.Sound.play(sound.payingSound, 0.2, true);
         ƒS.Sound.fade(sound.smallCrowd, 0.2, 1, true); */
         await Template.ƒS.Character.animate(Template.characters.seraphina, Template.characters.seraphina.pose.monster, Template.slideInAnimation(70, 100, 70, 200));
+        Template.ƒS.Sound.fade(Template.sound.vicotrySound, 0.4, 1);
         await Template.ƒS.Character.animate(Template.characters.seraphina, Template.characters.seraphina.pose.normal, Template.slideInAnimation(70, 200, 70, 100));
         await Template.ƒS.Speech.tell(Template.characters.seraphina, "ughh... ");
         await Template.ƒS.Speech.tell(Template.characters.seraphina, "what happend? ");
@@ -2450,8 +2460,10 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.narrator, "Seems like it wasn't enough...");
         await Template.ƒS.Speech.tell(Template.characters.narrator, "Seraphina is way to strong in this form...");
         await Template.ƒS.Character.animate(Template.characters.seraphina, Template.characters.seraphina.pose.monster, Template.slideInAnimation(70, 100, 30, 100));
+        Template.ƒS.Sound.fade(Template.sound.playerDeatchCry, 0.4, 1);
         await Template.ƒS.Character.animate(Template.characters.protagonist, Template.characters.protagonist.pose.normal, Template.slideInAnimation(25, 100, 25, 200));
         await Template.ƒS.Speech.tell(Template.characters.char1, "Seraphina please ... don't ... ");
+        Template.ƒS.Sound.fade(Template.sound.playerDeatchCry, 0.3, 1);
         await Template.ƒS.Character.animate(Template.characters.char1, Template.characters.char1.pose.normal, Template.slideInAnimation(10, 100, 15, 200));
         Template.ƒS.Character.hideAll();
         await Template.ƒS.Location.show(Template.locations.lonelyRoad);

@@ -205,22 +205,17 @@ namespace Template {
 
 
     ƒS.Sound.fade(sound.battle, 0.0, 1);
-
     switch (fightResult) {
       case resultFight.won:
         console.log("Won");
-        ƒS.Sound.fade(sound.vicotrySound, 0.4, 1);
 
         return "end_seven";
       case resultFight.killedHer:
         console.log("Killed her");
-        ƒS.Sound.fade(sound.femaleDeatchCry, 0.8, 1);
 
         return "end_five";
       case resultFight.died:
         console.log("Died");
-        ƒS.Sound.fade(sound.playerDeatchCry, 0.4, 1);
-
         return "end_six";
     }
 

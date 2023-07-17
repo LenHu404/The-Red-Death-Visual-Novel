@@ -12,6 +12,7 @@ namespace Template {
     ƒS.Sound.fade(sound.smallCrowd, 0.2, 1, true); */
 
     await ƒS.Character.animate(characters.seraphina, characters.seraphina.pose.monster, slideInAnimation(70, 100, 70, 200));
+    ƒS.Sound.fade(sound.vicotrySound, 0.4, 1);
     await ƒS.Character.animate(characters.seraphina, characters.seraphina.pose.normal, slideInAnimation(70, 200, 70, 100));
 
     await ƒS.Speech.tell(characters.seraphina, "ughh... ");

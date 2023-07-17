@@ -367,7 +367,19 @@ namespace Template {
     buttonFunctionalities("Close");
     let scenes: ƒS.Scenes = [
       // CHAPTER 1
-/* */      { scene: four_fightInTown, id: "fight", name: "Fight" },
+      { scene: one_villageEntrance, name: "Arrival in the village" },
+      { scene: one_familyHouse, name: "At the Family House" },
+      // CHAPTER 2
+      { scene: two_villageEntrance, id:"meetInBetween", name: "The Items" },
+      { scene: two_abandonedHouse, id:"oldHouse", name: "Getting the comb" },
+      { scene: two_oldTownHall, id:"certificate", name: "Getting the birth Certificate" },
+
+      // CHAPTER 3
+      //{ scene: three_villageEntrance, name: "Going back to Town" },
+      { scene: three_insideFamilyHouse, id:"goBack", name: "Choice to help, kill or wait" },
+      // CHAPTER 4
+      { scene: four_insideFamilyHouse, id:"helpProcedure", name: "Fightorwhat" }, 
+      { scene: four_fightInTown, id: "fight", name: "Fight" },
 
       // CHAPTER 5
       { scene: five_villageEntrance, name: "Aftermath" },

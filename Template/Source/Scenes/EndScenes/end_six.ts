@@ -12,10 +12,11 @@ namespace Template {
     await ƒS.Speech.tell(characters.narrator, "Seraphina is way to strong in this form...");
     await ƒS.Character.animate(characters.seraphina, characters.seraphina.pose.monster, slideInAnimation(70, 100, 30, 100));
 
-
+    ƒS.Sound.fade(sound.playerDeatchCry, 0.4, 1);
     await ƒS.Character.animate(characters.protagonist, characters.protagonist.pose.normal, slideInAnimation(25, 100, 25, 200));
 
     await ƒS.Speech.tell(characters.char1, "Seraphina please ... don't ... ");
+    ƒS.Sound.fade(sound.playerDeatchCry, 0.3, 1);
 
     await ƒS.Character.animate(characters.char1, characters.char1.pose.normal, slideInAnimation(10, 100, 15, 200));
 
