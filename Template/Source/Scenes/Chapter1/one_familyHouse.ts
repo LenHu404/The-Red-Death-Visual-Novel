@@ -4,10 +4,7 @@ namespace Template {
 
     let text = {
       narrator: {
-        T0000: "You follow him through the empty streets to an old but mostly still intact house.",
-        T0001: "",
-        T0002: "",
-        T0003: "",
+        T0000: "You follow him through the empty streets to an old but mostly still intact house."
 
       },
       char1: {
@@ -35,9 +32,7 @@ namespace Template {
         T0001: "So, how can i help?",
         T0002: "Alright, i guess there is no point in wasting time.",
         T0003: "What do i look for in particular?",
-        T0004: "Where do I look for that?",
-        T0005: "",
-        T0006: "",
+        T0004: "Where do I look for that?"
 
       }
       ,
@@ -45,10 +40,6 @@ namespace Template {
         T0000: "Really?!",
         T0001: "Thank you so much. I am never going to be able to repay you if you do.",
         T0002: "Good luck and bless you for helping!",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
 
       }
     };

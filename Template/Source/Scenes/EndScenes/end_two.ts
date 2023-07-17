@@ -8,36 +8,17 @@ namespace Template {
         T0001: "He keeps pleading but you dont stop.",
         T0002: "'It needs to be done' you keep telling yourself.",
         T0003: ".....",
-        
+
       },
       char1: {
         T0000: "WHATTT???",
         T0001: "DON'T YOU DARE!!",
-        T0002: "PLEASE DON'T DO DO IT",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-        T0007: "",
-        T0008: "",
-        T0009: "",
-        T0010: "",
-        T0011: "",
-
-      },
-      protagonist: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
+        T0002: "PLEASE DON'T DO DO IT"
 
       }
     };
 
-   
+
 
 
     ƒS.Speech.hide();
@@ -51,7 +32,7 @@ namespace Template {
     await ƒS.Character.animate(characters.char1, characters.char1.pose.normal, slideInAnimation(25, 100, 60, 100));
 
     await ƒS.update();
-    
+
     await ƒS.Speech.tell(characters.char1, text.char1.T0000);
     await ƒS.Speech.tell(characters.char1, text.char1.T0001);
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
@@ -61,6 +42,7 @@ namespace Template {
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0002);
     await ƒS.Speech.tell(characters.narrator, text.narrator.T0003);
+    ƒS.Sound.fade(sound.femaleDeatchCry, 0.9, 1);
 
     ƒS.Character.hideAll();
     return "blackScreen";
