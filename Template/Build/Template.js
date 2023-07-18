@@ -347,11 +347,11 @@ var Template;
         buttonFunctionalities("Close");
         let scenes = [
             // CHAPTER 1
-            /* { scene: one_villageEntrance, name: "Arrival in the village" },
-            { scene: one_familyHouse, name: "At the Family House" },
+            { scene: Template.one_villageEntrance, name: "Arrival in the village" },
+            { scene: Template.one_familyHouse, name: "At the Family House" },
             // CHAPTER 2
-            { scene: two_villageEntrance, id:"meetInBetween", name: "The Items" },
-            { scene: two_abandonedHouse, id:"oldHouse", name: "Getting the comb" }, */
+            { scene: Template.two_villageEntrance, id: "meetInBetween", name: "The Items" },
+            { scene: Template.two_abandonedHouse, id: "oldHouse", name: "Getting the comb" },
             { scene: Template.two_oldTownHall, id: "certificate", name: "Getting the birth Certificate" },
             // CHAPTER 3
             //{ scene: three_villageEntrance, name: "Going back to Town" },
@@ -1040,12 +1040,6 @@ var Template;
     async function two_oldTownHall() {
         console.log("two_oldTownHall ");
         let text = {
-            narrator: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-            },
             librarian: {
                 T0000: "What do you want?!",
                 T0001: "Hmm and why is that?",
@@ -1056,9 +1050,7 @@ var Template;
                 T0006: "You better stay away from them.",
                 T0007: "Hm i don't know where its hidden among these books but maybe i can help for some change?",
                 T0008: "Then good luck finding it yourself.",
-                T0009: "Oh this seems appropriate. Keep on the right side. It should be there.",
-                T0010: "",
-                T0011: "",
+                T0009: "Oh this seems appropriate. Keep on the right side. It should be there."
             },
             protagonist: {
                 T0000: "This looks like its the town hall.",
@@ -1071,11 +1063,7 @@ var Template;
                 T0007: "Just give me the birth certificate.",
                 T0008: "Oh okay. I guess I am on my own.",
                 T0009: "Lets put it in my backpack and head back.",
-                T0010: "Hm can this be useful? Maybe I sould remeber it for later.",
-                T0011: "This doesn't need to concern you.",
-                T0012: "This doesn't need to concern you.",
-                T0013: "This doesn't need to concern you.",
-                T0014: "This doesn't need to concern you.",
+                T0010: "Hm can this be useful? Maybe I should remeber it for later."
             }
         };
         let payOrNot = {
@@ -1169,7 +1157,7 @@ var Template;
         Template.ƒS.Inventory.add(Template.items.birth_certificate);
         document.querySelector("scene").removeChild(calendar);
         document.getElementById("oldCal").style.zIndex = "2";
-        await Template.ƒS.Speech.tell(Template.characters.protagonist, "Hm can this be useful? Maybe I sould remeber it for later.");
+        await Template.ƒS.Speech.tell(Template.characters.protagonist, "Hm can this be useful? Maybe I should remeber it for later.");
         Template.ƒS.Speech.hide();
         document.getElementById("oldCal").addEventListener('click', remove2);
         while (looking2) {

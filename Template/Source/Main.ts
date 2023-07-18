@@ -367,11 +367,11 @@ namespace Template {
     buttonFunctionalities("Close");
     let scenes: ƒS.Scenes = [
       // CHAPTER 1
-      /* { scene: one_villageEntrance, name: "Arrival in the village" },
+      { scene: one_villageEntrance, name: "Arrival in the village" },
       { scene: one_familyHouse, name: "At the Family House" },
       // CHAPTER 2
       { scene: two_villageEntrance, id:"meetInBetween", name: "The Items" },
-      { scene: two_abandonedHouse, id:"oldHouse", name: "Getting the comb" }, */
+      { scene: two_abandonedHouse, id:"oldHouse", name: "Getting the comb" },
       { scene: two_oldTownHall, id:"certificate", name: "Getting the birth Certificate" },
 
       // CHAPTER 3
