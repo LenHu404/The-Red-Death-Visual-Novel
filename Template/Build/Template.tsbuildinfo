@@ -4,11 +4,6 @@
     "sourceFiles": [
       "../Source/Main.ts",
       "../Source/Definitons/Dialog.ts",
-      "../Source/Scenes/01_startScene copy.ts",
-      "../Source/Scenes/SupermarketScene.ts",
-      "../Source/Scenes/TestScene.ts",
-      "../Source/Scenes/TestScene02.ts",
-      "../Source/Scenes/TestScene03.ts",
       "../Source/Scenes/Chapter1/one_familyHouse.ts",
       "../Source/Scenes/Chapter1/one_villageEntrance.ts",
       "../Source/Scenes/Chapter2/two_abandonedHouse.ts",
@@ -16,7 +11,6 @@
       "../Source/Scenes/Chapter2/two_villageEntrance.ts",
       "../Source/Scenes/Chapter3/three_insideFamilyHouse.ts",
       "../Source/Scenes/Chapter3/three_villageEntrance.ts",
-      "../Source/Scenes/Chapter4/0X_healSceneChoices.ts",
       "../Source/Scenes/Chapter4/four_fightInTown.ts",
       "../Source/Scenes/Chapter4/four_insideFamilyHouse.ts",
       "../Source/Scenes/Chapter5/five_villageEntrance.ts",
@@ -39,7 +33,7 @@
         },
         {
           "pos": 15,
-          "end": 113763,
+          "end": 96336,
           "kind": "text"
         }
       ],
@@ -67,7 +61,7 @@
       "sections": [
         {
           "pos": 0,
-          "end": 7510,
+          "end": 7056,
           "kind": "text"
         }
       ]

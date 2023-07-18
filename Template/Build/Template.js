@@ -53,6 +53,7 @@ var Template;
         dystopia: "../Audio/Dystopian.ogg",
         atmo1: "../Audio/atmo1.wav",
         battle: "../Audio/epicBattleMusic.mp3",
+        ritual: "../Audio/ritual.mp3",
         //background
         supermarketTrolleys: "../Audio/Supermarket_with_Trolleys.mp3",
         smallCrowd: "../Audio/smallCrowd.mp3",
@@ -407,293 +408,9 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function startSceneCopy() {
-        console.log("First Test Scene");
-        let text = {
-            narrator: {
-                T0000: "As your travling down a road you notic a village. You decide to go through it. ",
-                T0001: "Just as you are traveling through the rough looking village an old man is approaching you.",
-            },
-            char1: {
-                T0000: "Please sir, please ",
-                T0001: "We need your help!!",
-                T0002: "Its my daughter. She is in desperate need of help.",
-                T0003: "She happens to get infected with a sickness or worse maybe a curse.",
-                T0004: "There is a way to help her but we don't have the necessary items.",
-                T0005: "And to get them you have to face some dark creatures and decieving riddles.",
-                T0006: "Oh thank you kind sir!",
-                T0007: "What name can we call you?",
-                T0008: "Be praised...",
-                T0009: "No no no nonono... ",
-                T0010: "You have to help us!! Or we are doomed!",
-                T0011: "This can not be happening...",
-            },
-            protagonist: {
-                T0000: "...",
-                T0001: "What is the matter?",
-                T0002: "How do you think i can help?",
-                T0003: "Sounds intersting.",
-                T0004: "Point me to where i can start.",
-                T0005: "I am sorry but i cant to this. I have a more urgent matter to attend to. ",
-                T0006: "I wish you all best of luck.",
-            }
-        };
-        let helpYesNo = {
-            iSayYes: "Help the old man and his daughter.",
-            iSayNo: "Keep on traveling"
-        };
-        let dialogue = {
-            iSayYes: "Yes",
-            iSayNo: "No",
-            iSayNothing: "......."
-        };
-        Template.ƒS.Speech.hide();
-        Template.ƒS.Sound.fade(Template.sound.atmo1, 0.05, 1, true);
-        /* ƒS.Sound.play(sound.payingSound, 0.2, true);
-        ƒS.Sound.fade(sound.smallCrowd, 0.2, 1, true); */
-        await Template.ƒS.Location.show(Template.locations.eldenRing_dorf_eingang);
-        await Template.ƒS.update(Template.transitions.wet.duration, Template.transitions.wet.alpha, Template.transitions.wet.edge);
-        await Template.ƒS.Character.animate(Template.characters.protagonist, Template.characters.protagonist.pose.horse_behind, Template.slideInAnimation(0, 100, 20, 100));
-        //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.horse_behind, ƒS.positionPercent(20, 100));
-        //await ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0001);
-        //await ƒS.Character.show(characters.char1, characters.char1.pose.normal, ƒS.positionPercent(20, 100));
-        await Template.ƒS.Character.animate(Template.characters.char1, Template.characters.char1.pose.normal, Template.slideInAnimation(100, 100, 70, 100));
-        await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0000);
-        await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0001);
-        await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0000);
-        await Template.ƒS.Character.hide(Template.characters.protagonist);
-        await Template.ƒS.Character.show(Template.characters.protagonist, Template.characters.protagonist.pose.horse_normal, Template.ƒS.positionPercent(20, 100));
-        await Template.ƒS.update();
-        await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0001);
-        await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0002);
-        await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0003);
-        await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0002);
-        await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0004);
-        await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0005);
-        let dialogueElement = await Template.ƒS.Menu.getInput(helpYesNo, "choices");
-        switch (dialogueElement) {
-            case helpYesNo.iSayYes:
-                console.log("Friendly");
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0003);
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0004);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0006);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0007);
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, "");
-                Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
-                Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
-                //await ƒS.Speech.tell(characters.protagonist, "");
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0008 + Template.dataForSave.nameProtagonist);
-                break;
-            case helpYesNo.iSayNo:
-                console.log("Rude");
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0005);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0009);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0010);
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0006);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0011);
-                await Template.ƒS.Location.show(Template.locations.eldenRing01);
-                await Template.ƒS.Character.hide(Template.characters.char1);
-                await Template.ƒS.Character.hide(Template.characters.protagonist);
-                await Template.ƒS.Character.show(Template.characters.protagonist, Template.characters.protagonist.pose.horse_behind, Template.ƒS.positionPercent(20, 100));
-                await Template.ƒS.update(Template.transitions.test2.duration, Template.transitions.test2.alpha, Template.transitions.test2.edge);
-                break;
-        }
-        /* await ƒS.Speech.tell(characters.char1, text.char1.T0003);
-        dialogueElement = await ƒS.Menu.getInput(dialogue, "choices");
-    
-    
-        switch (dialogueElement) {
-          case dialogue.iSayYes:
-            console.log("Friendly");
-            await ƒS.Speech.tell(characters.protagonist, "");
-            dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-            characters.protagonist.name = dataForSave.nameProtagonist;
-            await ƒS.Speech.tell(characters.protagonist, "");
-            await ƒS.Speech.tell(characters.char1, text.char1.T0004 + dataForSave.nameProtagonist);
-            await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0000);
-            await ƒS.Speech.tell(characters.protagonist, text.protagonist.T0001);
-            await ƒS.Speech.tell(characters.char1, text.char1.T0005);
-    
-    
-            break;
-    
-          case dialogue.iSayNo:
-            console.log("Rude");
-            await ƒS.Speech.tell(characters.protagonist, "");
-            dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-            characters.protagonist.name = dataForSave.nameProtagonist;
-            await ƒS.Speech.tell(characters.char1, text.char1.T0004 + dataForSave.nameProtagonist);
-            break;
-    
-          case dialogue.iSayNothing:
-            console.log("Mute");
-            await ƒS.Speech.tell(characters.protagonist, "");
-            dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-            characters.protagonist.name = dataForSave.nameProtagonist;
-            await ƒS.Speech.tell(characters.char1, text.char1.T0004 + dataForSave.nameProtagonist);
-            break;
-        } */
-        /* dataForSave.nameProtagonist = await ƒS.Speech.getInput();
-        characters.protagonist.name = dataForSave.nameProtagonist; */
-        Template.ƒS.Speech.hide();
-    }
-    Template.startSceneCopy = startSceneCopy;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    async function SupermarketScene() {
-        console.log("First Test Scene");
-        let dialogue = {
-            iSayYes: "Okay",
-            iSayNo: "No",
-            iSayNothing: "......."
-        };
-        Template.ƒS.Speech.hide();
-        Template.ƒS.Sound.fade(Template.sound.supermarketTrolleys, 0.2, 1, true);
-        Template.ƒS.Sound.play(Template.sound.payingSound, 0.2, true);
-        Template.ƒS.Sound.fade(Template.sound.smallCrowd, 0.2, 1, true);
-        await Template.ƒS.Location.show(Template.locations.supermarketInside);
-        await Template.ƒS.update(Template.transitions.wet.duration, Template.transitions.wet.alpha, Template.transitions.wet.edge);
-        await Template.ƒS.Character.show(Template.characters.Eduard, Template.characters.Eduard.pose.normal, Template.ƒS.positionPercent(20, 100));
-        await Template.ƒS.Character.show(Template.characters.Aisaka, Template.characters.Aisaka.pose.happy, Template.ƒS.positionPercent(70, 110));
-        await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.Aisaka, "I'm hungry. Can I go into the store?");
-        Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
-        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
-        let dialogueElement = await Template.ƒS.Menu.getInput(dialogue, "choicesCSSClass");
-        switch (dialogueElement) {
-            case dialogue.iSayYes:
-                console.log("Friendly Brother");
-                // continue path here
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, "Make it quick.");
-                //await ƒS.Character.hide(characters.Eduard);
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Speech.tell(Template.characters.Aisaka, "Okay it wont take long!");
-                await Template.ƒS.Character.hide(Template.characters.Aisaka);
-                await Template.ƒS.Character.animate(Template.characters.Aisaka, Template.characters.Aisaka.pose.happy, Template.ghostAnimation());
-                break;
-            case dialogue.iSayNo:
-                console.log("Rude Brother");
-                // continue path here
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, Template.textAusgelagert.Eduard.T0001);
-                //await ƒS.Character.hide(characters.Eduard);
-                await Template.ƒS.Character.hide(Template.characters.Aisaka);
-                await Template.ƒS.Character.show(Template.characters.Aisaka, Template.characters.Aisaka.pose.angry, Template.ƒS.positionPercent(70, 110));
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Character.animate(Template.characters.Aisaka, Template.characters.Aisaka.pose.angry, Template.angryAnimation());
-                await Template.ƒS.Speech.tell(Template.characters.Aisaka, Template.textAusgelagert.Aisaka.T0001);
-                break;
-            case dialogue.iSayNothing:
-                console.log("Mute Brother");
-                // continue path here
-                // continue path here
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, ".............");
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, "..buy something for me too.");
-                //await ƒS.Character.hide(characters.Eduard);
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Speech.tell(Template.characters.Aisaka, "Alright i'll be right back with something sweet for you!");
-                await Template.ƒS.Character.hide(Template.characters.Aisaka);
-                await Template.ƒS.Character.animate(Template.characters.Aisaka, Template.characters.Aisaka.pose.happy, Template.ghostAnimation());
-                break;
-        }
-        Template.ƒS.Speech.hide();
-    }
-    Template.SupermarketScene = SupermarketScene;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    async function TestScene() {
-        console.log("First Test Scene");
-        Template.ƒS.Speech.hide();
-        Template.ƒS.Sound.fade(Template.sound.dystopia, 0.2, 1, true);
-        await Template.ƒS.Location.show(Template.locations.supermarketInside);
-        await Template.ƒS.update(Template.transitions.clouds.duration, Template.transitions.clouds.alpha, Template.transitions.clouds.edge);
-        await Template.ƒS.Character.show(Template.characters.Eduard, Template.characters.Eduard.pose.normal, Template.ƒS.positionPercent(70, 100));
-        await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.Eduard, Template.textAusgelagert.Eduard.T0000);
-        await Template.ƒS.Character.hide(Template.characters.Eduard);
-        await Template.ƒS.Character.show(Template.characters.Aisaka, Template.characters.Aisaka.pose.upset, Template.ƒS.positionPercent(30, 110));
-        await Template.ƒS.update(0.5);
-        await Template.ƒS.Speech.tell(Template.characters.Aisaka, Template.textAusgelagert.Aisaka.T0000);
-        await Template.ƒS.Character.hide(Template.characters.Aisaka);
-        Template.ƒS.Speech.hide();
-    }
-    Template.TestScene = TestScene;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    async function TestScene02() {
-        console.log("First Test Scene");
-        let dialogue = {
-            iSayYes: "Okay",
-            iSayNo: "No",
-            iSayNothing: "......."
-        };
-        Template.ƒS.Speech.hide();
-        await Template.ƒS.Location.show(Template.locations.nightCity);
-        await Template.ƒS.update(Template.transitions.wet.duration, Template.transitions.wet.alpha, Template.transitions.wet.edge);
-        await Template.ƒS.Character.show(Template.characters.Eduard, Template.characters.Eduard.pose.normal, Template.ƒS.positionPercent(20, 100));
-        await Template.ƒS.Character.show(Template.characters.Aisaka, Template.characters.Aisaka.pose.happy, Template.ƒS.positionPercent(70, 110));
-        await Template.ƒS.update(1);
-        await Template.ƒS.Speech.tell(Template.characters.Aisaka, "I'm hungry. Can I go into the store?");
-        let dialogueElement = await Template.ƒS.Menu.getInput(dialogue, "choicesCSSClass");
-        switch (dialogueElement) {
-            case dialogue.iSayYes:
-                console.log("Friendly Brother");
-                // continue path here
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, "Make it quick.");
-                //await ƒS.Character.hide(characters.Eduard);
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Speech.tell(Template.characters.Aisaka, "Okay it wont take long!");
-                await Template.ƒS.Character.animate(Template.characters.Aisaka, Template.characters.Aisaka.pose.angry, Template.ghostAnimation());
-                break;
-            case dialogue.iSayNo:
-                console.log("Rude Brother");
-                // continue path here
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, Template.textAusgelagert.Eduard.T0001);
-                //await ƒS.Character.hide(characters.Eduard);
-                await Template.ƒS.Character.hide(Template.characters.Aisaka);
-                await Template.ƒS.Character.show(Template.characters.Aisaka, Template.characters.Aisaka.pose.angry, Template.ƒS.positionPercent(70, 110));
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Character.animate(Template.characters.Aisaka, Template.characters.Aisaka.pose.angry, Template.angryAnimation());
-                await Template.ƒS.Speech.tell(Template.characters.Aisaka, Template.textAusgelagert.Aisaka.T0001);
-                break;
-            case dialogue.iSayNothing:
-                console.log("Mute Brother");
-                // continue path here
-                // continue path here
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, ".............");
-                await Template.ƒS.Speech.tell(Template.characters.Eduard, "..buy something for me too.");
-                //await ƒS.Character.hide(characters.Eduard);
-                await Template.ƒS.update(0.5);
-                await Template.ƒS.Speech.tell(Template.characters.Aisaka, "Alright i'll be right back with something sweet for you!");
-                await Template.ƒS.Character.animate(Template.characters.Aisaka, Template.characters.Aisaka.pose.angry, Template.ghostAnimation());
-                break;
-        }
-        Template.ƒS.Speech.hide();
-    }
-    Template.TestScene02 = TestScene02;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    async function TestScene03() {
-        console.log("First Test Scene");
-        /* let text = {
-          lily: {
-            T0001: "hallo",
-            T0002: "tschüss"
-          }
-        }; */
-    }
-    Template.TestScene03 = TestScene03;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
     async function one_familyHouse() {
         console.log("First Test Scene");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
         let text = {
             narrator: {
                 T0000: "You follow him through the empty streets to an old but mostly still intact house."
@@ -739,7 +456,7 @@ var Template;
         ƒS.Sound.fade(sound.smallCrowd, 0.2, 1, true); */
         await Template.ƒS.Location.show(Template.locations.familyHouse);
         await Template.ƒS.update(Template.transitions.wet.duration, Template.transitions.wet.alpha, Template.transitions.wet.edge);
-        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0001);
+        await Template.ƒS.Speech.tell(Template.characters.narrator, text.narrator.T0000);
         //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.horse_behind, ƒS.positionPercent(20, 100));
         //await ƒS.update(1);
         //await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
@@ -929,6 +646,10 @@ var Template;
     plank.id = "plank";
     async function two_abandonedHouse() {
         console.log("two_abandonedHouse");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotCert && Template.ƒS.Inventory.getAmount(Template.items.birth_certificate) == 0) {
+            Template.ƒS.Inventory.add(Template.items.birth_certificate);
+        }
         let text = {
             narrator: {
                 T0000: "",
@@ -1039,6 +760,10 @@ var Template;
     calendar.id = "calendar";
     async function two_oldTownHall() {
         console.log("two_oldTownHall ");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotComb && Template.ƒS.Inventory.getAmount(Template.items.golden_comb) == 0) {
+            Template.ƒS.Inventory.add(Template.items.golden_comb);
+        }
         let text = {
             librarian: {
                 T0000: "What do you want?!",
@@ -1177,6 +902,13 @@ var Template;
 var Template;
 (function (Template) {
     async function two_villageEntrance() {
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotCert && Template.ƒS.Inventory.getAmount(Template.items.birth_certificate) == 0) {
+            Template.ƒS.Inventory.add(Template.items.birth_certificate);
+        }
+        if (Template.dataForSave.gotComb && Template.ƒS.Inventory.getAmount(Template.items.golden_comb) == 0) {
+            Template.ƒS.Inventory.add(Template.items.golden_comb);
+        }
         console.log("two_villageEntrance ");
         let text1 = {
             char1: {
@@ -1281,6 +1013,13 @@ var Template;
 (function (Template) {
     async function three_insideFamilyHouse() {
         console.log("three_insideFamilyHouse ");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotCert && Template.ƒS.Inventory.getAmount(Template.items.birth_certificate) == 0) {
+            Template.ƒS.Inventory.add(Template.items.birth_certificate);
+        }
+        if (Template.dataForSave.gotComb && Template.ƒS.Inventory.getAmount(Template.items.golden_comb) == 0) {
+            Template.ƒS.Inventory.add(Template.items.golden_comb);
+        }
         let text = {
             narrator: {
                 T0000: "",
@@ -1459,6 +1198,13 @@ var Template;
 (function (Template) {
     async function three_villageEntrance() {
         console.log("three_villageEntrance ");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotCert && Template.ƒS.Inventory.getAmount(Template.items.birth_certificate) == 0) {
+            Template.ƒS.Inventory.add(Template.items.birth_certificate);
+        }
+        if (Template.dataForSave.gotComb && Template.ƒS.Inventory.getAmount(Template.items.golden_comb) == 0) {
+            Template.ƒS.Inventory.add(Template.items.golden_comb);
+        }
         let text = {
             char1: {
                 T0000: "Seraphina!",
@@ -1583,85 +1329,6 @@ var Template;
 })(Template || (Template = {}));
 var Template;
 (function (Template) {
-    async function healSceneChoices() {
-        console.log("First Test Scene");
-        let text = {
-            narrator: {
-                T0000: "",
-                T0001: "",
-            },
-            char1: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-                T0004: "",
-                T0005: "",
-                T0006: "",
-                T0007: "",
-                T0008: "",
-                T0009: "",
-                T0010: "",
-                T0011: "",
-            },
-            protagonist: {
-                T0000: "",
-                T0001: "",
-                T0002: "",
-                T0003: "",
-                T0004: "",
-                T0005: "",
-                T0006: "",
-            }
-        };
-        let helpYesNo = {
-            iSayYes: "Help the old man and his daughter.",
-            iSayNo: "Keep on traveling"
-        };
-        Template.ƒS.Speech.hide();
-        Template.ƒS.Sound.fade(Template.sound.atmo1, 0.05, 1, true);
-        /* ƒS.Sound.play(sound.payingSound, 0.2, true);
-        ƒS.Sound.fade(sound.smallCrowd, 0.2, 1, true); */
-        await Template.ƒS.Location.show(Template.locations.novelPage_pergament);
-        await Template.ƒS.update(Template.transitions.wet.duration, Template.transitions.wet.alpha, Template.transitions.wet.edge);
-        let dialogueElement = await Template.ƒS.Menu.getInput(helpYesNo, "choices");
-        switch (dialogueElement) {
-            case helpYesNo.iSayYes:
-                console.log("Friendly");
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0003);
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0004);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0006);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0007);
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, "");
-                Template.dataForSave.nameProtagonist = await Template.ƒS.Speech.getInput();
-                Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
-                //await ƒS.Speech.tell(characters.protagonist, "");
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0008 + Template.dataForSave.nameProtagonist);
-                break;
-            case helpYesNo.iSayNo:
-                console.log("Rude");
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0005);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0009);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0010);
-                await Template.ƒS.Speech.tell(Template.characters.protagonist, text.protagonist.T0006);
-                await Template.ƒS.Speech.tell(Template.characters.char1, text.char1.T0011);
-                await Template.ƒS.Location.show(Template.locations.eldenRing01);
-                await Template.ƒS.Character.hide(Template.characters.char1);
-                await Template.ƒS.Character.hide(Template.characters.protagonist);
-                await Template.ƒS.Character.show(Template.characters.protagonist, Template.characters.protagonist.pose.horse_behind, Template.ƒS.positionPercent(20, 100));
-                await Template.ƒS.update(Template.transitions.test2.duration, Template.transitions.test2.alpha, Template.transitions.test2.edge);
-                break;
-        }
-        //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.horse_behind, ƒS.positionPercent(20, 100));
-        //await ƒS.update(1);
-        //await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
-        Template.ƒS.Speech.hide();
-    }
-    Template.healSceneChoices = healSceneChoices;
-})(Template || (Template = {}));
-var Template;
-(function (Template) {
-    let quickTimelength = 9;
     let chars = "ABCDEFGHJKLNOPQRSTUVWXYZ";
     let resultFight;
     (function (resultFight) {
@@ -1670,12 +1337,20 @@ var Template;
         resultFight[resultFight["died"] = 2] = "died";
     })(resultFight = Template.resultFight || (Template.resultFight = {}));
     let fightResult;
+    let quickTimelength = 12;
     let failures = 1;
     let succes = 1;
     let lifeProt = 8;
     let lifeSera = 8;
     async function four_fightInTown() {
         console.log("four_fightInTown ");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotCert && Template.ƒS.Inventory.getAmount(Template.items.birth_certificate) == 0) {
+            Template.ƒS.Inventory.add(Template.items.birth_certificate);
+        }
+        if (Template.dataForSave.gotComb && Template.ƒS.Inventory.getAmount(Template.items.golden_comb) == 0) {
+            Template.ƒS.Inventory.add(Template.items.golden_comb);
+        }
         let text1 = {
             narrator: {
                 T0000: "As you wait you notice how Seraphina's skin get more red and her whole gets bigger.",
@@ -1846,19 +1521,40 @@ var Template;
     let succes = 1;
     async function four_insideFamilyHouse() {
         console.log("four_insideFamilyHouse");
+        Template.characters.protagonist.name = Template.dataForSave.nameProtagonist;
+        if (Template.dataForSave.gotCert && Template.ƒS.Inventory.getAmount(Template.items.birth_certificate) == 0) {
+            Template.ƒS.Inventory.add(Template.items.birth_certificate);
+        }
+        if (Template.dataForSave.gotComb && Template.ƒS.Inventory.getAmount(Template.items.golden_comb) == 0) {
+            Template.ƒS.Inventory.add(Template.items.golden_comb);
+        }
         Template.ƒS.Sound.fade(Template.sound.atmo1, 0.05, 1, true);
         //ƒS.Speech.hide();
         await Template.ƒS.Speech.tell(Template.characters.char1, "Try to calm her down");
         await Template.ƒS.Character.animate(Template.characters.char1, Template.characters.char1.pose.normal, Template.slideInAnimation(25, 100, 10, 100));
         await Template.ƒS.Character.animate(Template.characters.protagonist, Template.characters.protagonist.pose.normal, Template.slideInAnimation(15, 100, 25, 100));
-        await Template.ƒS.Speech.tell(Template.characters.protagonist, "");
-        let input = "";
-        input = await Template.ƒS.Speech.getInput();
-        if (input.includes("calm down") || input.includes("deep breaths") || input.includes("it's going to be okay") || input.includes("okay")) {
-            await Template.ƒS.Speech.tell(Template.characters.narrator, "she calms down a bit");
-        }
-        else {
-            await Template.ƒS.Speech.tell(Template.characters.narrator, "it doesn't seem to work...");
+        //////////////////////////////////////////////////////////////////////////
+        let i = 0;
+        while (true) {
+            await Template.ƒS.Speech.tell(Template.characters.protagonist, "");
+            let input = "";
+            input = await Template.ƒS.Speech.getInput();
+            if (input.includes("calm down") || input.includes("deep breaths") || input.includes("it's going to be okay") || input.includes("chill bro")
+                || input.includes("it's okay") || input.includes("chill") || input.includes("cool") || input.includes("relax") || input.includes("take it easy") || input.includes("control")) {
+                await Template.ƒS.Speech.tell(Template.characters.narrator, "she calms down a bit");
+                break;
+            }
+            else {
+                await Template.ƒS.Speech.tell(Template.characters.narrator, "that doesn't seem to work...");
+                if (i >= 2) {
+                    await Template.ƒS.Speech.tell(Template.characters.narrator, "She didn't calm down...");
+                    break;
+                }
+                else {
+                    await Template.ƒS.Speech.tell(Template.characters.narrator, "Maybe say something different? ");
+                }
+            }
+            i++;
         }
         /////////////////////////////////////////////////////////////////////////
         await Template.ƒS.Speech.tell(Template.characters.narrator, "What is the day of Seraphina's birth?    ");
@@ -1874,9 +1570,20 @@ var Template;
         console.log("Succes " + succes);
         console.log("failures " + failures);
         ////////////////////////////////////////////////////////////////////////
-        await Template.ƒS.Speech.tell(Template.characters.narrator, "What was the unusual thing on that day? ");
-        input = await Template.ƒS.Speech.getInput();
+        await Template.ƒS.Speech.tell(Template.characters.narrator, "What was the unusual thing on that day?      ");
+        let input = await Template.ƒS.Speech.getInput();
         if (input.includes("blood moon") || input.includes("red moon") || input.includes("moon constellation") || input.includes("blut mond") || input.includes("red")) {
+            await Template.ƒS.Speech.tell(Template.characters.narrator, "correct");
+            succes++;
+        }
+        else {
+            await Template.ƒS.Speech.tell(Template.characters.narrator, "not correct");
+            failures++;
+        }
+        /////////////////////////////////////////////////////////////////////////
+        await Template.ƒS.Speech.tell(Template.characters.narrator, "What item do you want to use?        ");
+        input = await Template.ƒS.Speech.getInput();
+        if (input.includes("old golden comb") || input.includes("golden comb") || input.includes("comb") || input.includes("kamm")) {
             await Template.ƒS.Speech.tell(Template.characters.narrator, "correct");
             succes++;
         }
@@ -1915,9 +1622,6 @@ var Template;
             Template.ƒS.Speech.hide();
             return "fight";
         }
-        //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.horse_behind, ƒS.positionPercent(20, 100));
-        //await ƒS.update(1);
-        //await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
     }
     Template.four_insideFamilyHouse = four_insideFamilyHouse;
 })(Template || (Template = {}));
@@ -1947,7 +1651,7 @@ var Template;
     async function end_five() {
         console.log("end_five ");
         Template.ƒS.Speech.hide();
-        Template.ƒS.Sound.fade(Template.sound.atmo1, 0.05, 1, true);
+        //ƒS.Sound.fade(sound.atmo1, 0.05, 1, true);
         Template.ƒS.Sound.fade(Template.sound.femaleDeatchCry, 0.8, 1);
         await Template.ƒS.Character.animate(Template.characters.seraphina, Template.characters.seraphina.pose.monster, Template.slideInAnimation(70, 100, 70, 200));
         await Template.ƒS.Speech.tell(Template.characters.char1, "NOOOO");

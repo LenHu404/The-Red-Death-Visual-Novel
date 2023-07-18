@@ -1,13 +1,13 @@
 namespace Template {
-  let quickTimelength = 9;
   let chars = "ABCDEFGHJKLNOPQRSTUVWXYZ";
-
+  
   export enum resultFight {
     won = 0,
     killedHer,
     died
   }
   let fightResult: resultFight;
+  let quickTimelength = 12;
   let failures = 1;
   let succes = 1;
   let lifeProt = 8;
@@ -15,6 +15,15 @@ namespace Template {
 
   export async function four_fightInTown(): ƒS.SceneReturn {
     console.log("four_fightInTown ");
+
+    characters.protagonist.name = dataForSave.nameProtagonist;
+
+    if(dataForSave.gotCert && ƒS.Inventory.getAmount(items.birth_certificate) == 0) {
+      ƒS.Inventory.add(items.birth_certificate);
+    }
+    if(dataForSave.gotComb && ƒS.Inventory.getAmount(items.golden_comb) == 0) {
+      ƒS.Inventory.add(items.golden_comb);
+    }
 
     let text1 = {
       narrator: {

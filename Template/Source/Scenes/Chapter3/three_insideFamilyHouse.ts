@@ -1,6 +1,15 @@
 namespace Template {
   export async function three_insideFamilyHouse(): ƒS.SceneReturn {
     console.log("three_insideFamilyHouse ");
+    characters.protagonist.name = dataForSave.nameProtagonist;
+
+    if(dataForSave.gotCert && ƒS.Inventory.getAmount(items.birth_certificate) == 0) {
+      ƒS.Inventory.add(items.birth_certificate);
+    }
+    if(dataForSave.gotComb && ƒS.Inventory.getAmount(items.golden_comb) == 0) {
+      ƒS.Inventory.add(items.golden_comb);
+    }
+
 
     let text = {
       narrator: {

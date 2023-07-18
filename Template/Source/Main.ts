@@ -55,6 +55,7 @@ namespace Template {
     dystopia: "../Audio/Dystopian.ogg",
     atmo1: "../Audio/atmo1.wav",
     battle: "../Audio/epicBattleMusic.mp3",
+    ritual: "../Audio/ritual.mp3",
 
     //background
     supermarketTrolleys: "../Audio/Supermarket_with_Trolleys.mp3",

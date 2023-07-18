@@ -1,4 +1,5 @@
 namespace Template {
+  
   let looking = true;
   let looking2 = true;
   let goNext = false;
@@ -14,7 +15,12 @@ namespace Template {
 
   export async function two_oldTownHall(): ƒS.SceneReturn {
     console.log("two_oldTownHall ");
+    
+    characters.protagonist.name = dataForSave.nameProtagonist;
 
+    if(dataForSave.gotComb && ƒS.Inventory.getAmount(items.golden_comb) == 0) {
+      ƒS.Inventory.add(items.golden_comb);
+    }
 
     let text = {
       librarian: {

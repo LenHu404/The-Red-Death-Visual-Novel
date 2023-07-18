@@ -48,6 +48,7 @@ declare namespace Template {
         dystopia: string;
         atmo1: string;
         battle: string;
+        ritual: string;
         supermarketTrolleys: string;
         smallCrowd: string;
         payingSound: string;
@@ -216,21 +217,6 @@ declare namespace Template {
     };
 }
 declare namespace Template {
-    function startSceneCopy(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function SupermarketScene(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function TestScene(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function TestScene02(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function TestScene03(): ƒS.SceneReturn;
-}
-declare namespace Template {
     function one_familyHouse(): ƒS.SceneReturn;
 }
 declare namespace Template {
@@ -250,9 +236,6 @@ declare namespace Template {
 }
 declare namespace Template {
     function three_villageEntrance(): ƒS.SceneReturn;
-}
-declare namespace Template {
-    function healSceneChoices(): ƒS.SceneReturn;
 }
 declare namespace Template {
     enum resultFight {

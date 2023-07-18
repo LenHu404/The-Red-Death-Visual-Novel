@@ -1,6 +1,7 @@
 namespace Template {
   export async function one_familyHouse(): ƒS.SceneReturn {
     console.log("First Test Scene");
+    characters.protagonist.name = dataForSave.nameProtagonist;
 
     let text = {
       narrator: {
@@ -60,7 +61,7 @@ namespace Template {
 
     await ƒS.Location.show(locations.familyHouse);
     await ƒS.update(transitions.wet.duration, transitions.wet.alpha, transitions.wet.edge);
-    await ƒS.Speech.tell(characters.narrator, text.narrator.T0001);
+    await ƒS.Speech.tell(characters.narrator, text.narrator.T0000);
 
     //await ƒS.Character.show(characters.protagonist, characters.protagonist.pose.horse_behind, ƒS.positionPercent(20, 100));
     //await ƒS.update(1);

@@ -1,4 +1,5 @@
 namespace Template {
+  
   let goNext = false;
   let gotPlank = false;
   let gotVase = false;
@@ -13,6 +14,12 @@ namespace Template {
   plank.id = "plank";
   export async function two_abandonedHouse(): ƒS.SceneReturn {
     console.log("two_abandonedHouse");
+    
+    characters.protagonist.name = dataForSave.nameProtagonist;
+
+    if(dataForSave.gotCert && ƒS.Inventory.getAmount(items.birth_certificate) == 0) {
+      ƒS.Inventory.add(items.birth_certificate);
+    }
 
     let text = {
       narrator: {

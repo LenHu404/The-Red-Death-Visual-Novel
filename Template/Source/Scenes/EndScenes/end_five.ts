@@ -5,7 +5,7 @@ namespace Template {
 
 
     ƒS.Speech.hide();
-    ƒS.Sound.fade(sound.atmo1, 0.05, 1, true);
+    //ƒS.Sound.fade(sound.atmo1, 0.05, 1, true);
     ƒS.Sound.fade(sound.femaleDeatchCry, 0.8, 1);
     await ƒS.Character.animate(characters.seraphina, characters.seraphina.pose.monster, slideInAnimation(70, 100, 70, 200));
 
