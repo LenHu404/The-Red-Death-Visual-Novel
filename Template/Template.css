@@ -222,6 +222,9 @@ input[id="scoreForAisaka"] {
   position: absolute;
   top: 30%;
   left: 70%;
+  width: 20px;
+  height: 60px;
+
 }
 
 #oldCal {
@@ -230,9 +233,12 @@ input[id="scoreForAisaka"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-68%);
+  
 }
 
 #calendar {
+  width: 20px;
+  height: 60px;
   z-index: 2;
   position: absolute;
   top: 13%;
@@ -271,7 +277,23 @@ input[id="scoreForAisaka"] {
 }
 
 
+.blink {
+  animation: blink 1s;
+  animation-iteration-count: infinite;
+  background-color: rgb(234, 234, 234);
+}
 
+@keyframes blink {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
 
 
 

@@ -347,11 +347,11 @@ var Template;
         buttonFunctionalities("Close");
         let scenes = [
             // CHAPTER 1
-            { scene: Template.one_villageEntrance, name: "Arrival in the village" },
-            { scene: Template.one_familyHouse, name: "At the Family House" },
+            /* { scene: one_villageEntrance, name: "Arrival in the village" },
+            { scene: one_familyHouse, name: "At the Family House" },
             // CHAPTER 2
-            { scene: Template.two_villageEntrance, id: "meetInBetween", name: "The Items" },
-            { scene: Template.two_abandonedHouse, id: "oldHouse", name: "Getting the comb" },
+            { scene: two_villageEntrance, id:"meetInBetween", name: "The Items" },
+            { scene: two_abandonedHouse, id:"oldHouse", name: "Getting the comb" }, */
             { scene: Template.two_oldTownHall, id: "certificate", name: "Getting the birth Certificate" },
             // CHAPTER 3
             //{ scene: three_villageEntrance, name: "Going back to Town" },
@@ -1026,7 +1026,11 @@ var Template;
 var Template;
 (function (Template) {
     let looking = true;
+    let looking2 = true;
     let goNext = false;
+    let timer = 0;
+    let time = 5;
+    let alreadyMarked = false;
     let rightBook = document.createElement('img');
     rightBook.src = 'Images/Items/transpPick.png';
     rightBook.id = "rightBook";
@@ -1131,8 +1135,15 @@ var Template;
         Template.ƒS.Character.hideAll();
         Template.ƒS.Speech.hide();
         while (!goNext) {
+            timer++;
             console.log("in loop");
             await Template.ƒS.Progress.delay(2);
+            if (timer > time && !alreadyMarked) {
+                console.log("addedBlink");
+                alreadyMarked = true;
+                rightBook.classList.add("blink");
+                calendar.classList.add("blink");
+            }
         }
         await Template.ƒS.Speech.tell(Template.characters.protagonist, "Lets put it in my backpack and head back.");
         return "meetInBetween";
@@ -1161,7 +1172,7 @@ var Template;
         await Template.ƒS.Speech.tell(Template.characters.protagonist, "Hm can this be useful? Maybe I sould remeber it for later.");
         Template.ƒS.Speech.hide();
         document.getElementById("oldCal").addEventListener('click', remove2);
-        while (looking) {
+        while (looking2) {
             console.log("in loop3");
             await Template.ƒS.Progress.delay(2);
         }
@@ -1172,7 +1183,7 @@ var Template;
     }
     function remove2() {
         document.getElementById("oldCal").style.zIndex = "-1";
-        looking = false;
+        looking2 = false;
     }
 })(Template || (Template = {}));
 var Template;

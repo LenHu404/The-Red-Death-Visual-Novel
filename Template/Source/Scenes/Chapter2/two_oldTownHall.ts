@@ -1,6 +1,10 @@
 namespace Template {
   let looking = true;
+  let looking2 = true;
   let goNext = false;
+  let timer = 0;
+  let time = 5;
+  let alreadyMarked = false;
   let rightBook = document.createElement('img');
   rightBook.src = 'Images/Items/transpPick.png';
   rightBook.id = "rightBook";
@@ -119,16 +123,24 @@ namespace Template {
     rightBook.addEventListener('click', getRightBook);
     document.querySelector("scene").appendChild(calendar);
     calendar.addEventListener('click', getCalendar);
-
-
+    
+    
     ƒS.Character.hideAll();
     ƒS.Speech.hide();
-
+    
     while (!goNext) {
+      timer++;
       console.log("in loop")
       await ƒS.Progress.delay(2);
+      if(timer > time && !alreadyMarked){
+        console.log("addedBlink");
+        alreadyMarked = true;
+        rightBook.classList.add("blink");
+        calendar.classList.add("blink");
+      }
 
     }
+    
     await ƒS.Speech.tell(characters.protagonist, "Lets put it in my backpack and head back.");
     
     return "meetInBetween";
@@ -162,7 +174,7 @@ namespace Template {
 
 
     document.getElementById("oldCal").addEventListener('click', remove2);
-    while (looking) {
+    while (looking2) {
       console.log("in loop3")
       await ƒS.Progress.delay(2);
 
@@ -176,6 +188,6 @@ namespace Template {
 
   function remove2(): void {
     document.getElementById("oldCal").style.zIndex = "-1";
-    looking = false;
+    looking2 = false;
   }
 }
