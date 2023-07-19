@@ -1,11 +1,11 @@
 # Visual Novel: The Red Death
 Ein Visual Novel erstellt in einem Wahlpflichtfach an der HFU.
 ## Links
-Game: https://lenhu404.github.io/The-Red-Death-Visual-Novel/Template/The_Red_Death.html
+- Game: https://lenhu404.github.io/The-Red-Death-Visual-Novel/Template/The_Red_Death.html
 
-Konzept: https://github.com/LenHu404/The-Red-Death-Visual-Novel/tree/main/Konzept
+- Konzept: https://github.com/LenHu404/The-Red-Death-Visual-Novel/tree/main/Konzept
 
-Zip/RaR: 
+- Zip/RaR: https://1drv.ms/u/s!Apkox7XXqmWhjqIKchefngwoTJ-LxA?e=FU1BHg
 
 ## Steuerung
 I: Öffnet den Rucksack mit den Gegenständen
