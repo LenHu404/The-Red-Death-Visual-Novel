@@ -1432,6 +1432,7 @@ var Template;
         Template.ƒS.Character.hideAll();
         await Template.ƒS.Location.show(Template.locations.blackScreen);
         await Template.ƒS.update();
+        alert("Press 'F5' to play again! Maybe you will get a different edning?!");
     }
     Template.end = end;
 })(Template || (Template = {}));

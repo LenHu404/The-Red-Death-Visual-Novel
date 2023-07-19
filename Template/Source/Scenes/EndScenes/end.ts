@@ -10,5 +10,7 @@ namespace Template {
     ƒS.Character.hideAll();
     await ƒS.Location.show(locations.blackScreen);
     await ƒS.update();
+
+    alert("Press 'F5' to play again! Maybe you will get a different edning?!");
   }
 }
