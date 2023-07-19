@@ -2,7 +2,8 @@ namespace Template {
   export import ƒ = FudgeCore;
   export import ƒS = FudgeStory;
 
-  console.log("FudgeStory template starting");
+  alert("Hello!\nI advise you to play on Google Chrome in Fullscreen (Press F11).\nToggle the game menu by clicking 'M' and to open your Backpack press 'I'.\nEnjoy!");
+  console.log("The Red Death starting");
   export enum whichItemfirst {
     notDecided = 0,
     Certfiicate,
@@ -204,12 +205,13 @@ namespace Template {
   export let items = {
     birth_certificate: {
       name: "Old birth certificate",
-      description: "An old birth certificate",
-      image: "Images/Items/birth_certificate.png"
+      description: "Says that Seraphina was born on 13. 912",
+      image: "Images/Items/birth_certificate.png",
+      static: true
     },
     golden_comb: {
       name: "Golden comb",
-      description: "A golden comb",
+      description: "An old golden Comb which belonged to Seraphina or her Mother.",
       image: "Images/Items/golden_comb.png",
       static: true
     }

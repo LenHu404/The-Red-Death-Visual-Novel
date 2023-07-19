@@ -3,7 +3,8 @@ var Template;
 (function (Template) {
     Template.ƒ = FudgeCore;
     Template.ƒS = FudgeStory;
-    console.log("FudgeStory template starting");
+    alert("Hello!\nI advise you to play on Google Chrome in Fullscreen (Press F11).\nToggle the game menu by clicking 'M' and to open your Backpack press 'I'.\nEnjoy!");
+    console.log("The Red Death starting");
     let whichItemfirst;
     (function (whichItemfirst) {
         whichItemfirst[whichItemfirst["notDecided"] = 0] = "notDecided";
@@ -193,12 +194,13 @@ var Template;
     Template.items = {
         birth_certificate: {
             name: "Old birth certificate",
-            description: "An old birth certificate",
-            image: "Images/Items/birth_certificate.png"
+            description: "Says that Seraphina was born on 13. 912",
+            image: "Images/Items/birth_certificate.png",
+            static: true
         },
         golden_comb: {
             name: "Golden comb",
-            description: "A golden comb",
+            description: "An old golden Comb which belonged to Seraphina or her Mother.",
             image: "Images/Items/golden_comb.png",
             static: true
         }
@@ -748,6 +750,7 @@ var Template;
 (function (Template) {
     let looking = true;
     let looking2 = true;
+    let gotCal = false;
     let goNext = false;
     let timer = 0;
     let time = 5;
@@ -858,6 +861,9 @@ var Template;
                 calendar.classList.add("blink");
             }
         }
+        if (!gotCal) {
+            removeCalenderClick();
+        }
         await Template.ƒS.Speech.tell(Template.characters.protagonist, "Lets put it in my backpack and head back.");
         return "meetInBetween";
     }
@@ -879,6 +885,7 @@ var Template;
         goNext = true;
     }
     async function getCalendar() {
+        gotCal = true;
         Template.ƒS.Inventory.add(Template.items.birth_certificate);
         document.querySelector("scene").removeChild(calendar);
         document.getElementById("oldCal").style.zIndex = "2";
@@ -897,6 +904,9 @@ var Template;
     function remove2() {
         document.getElementById("oldCal").style.zIndex = "-1";
         looking2 = false;
+    }
+    function removeCalenderClick() {
+        document.querySelector("scene").removeChild(calendar);
     }
 })(Template || (Template = {}));
 var Template;
@@ -1153,6 +1163,7 @@ var Template;
             console.log("tried to heal");
         }
         Template.ƒS.Sound.fade(Template.sound.atmo1, 0.0, 1);
+        Template.ƒS.Sound.fade(Template.sound.ritual, 0.0, 1);
         await Template.ƒS.Character.animate(Template.characters.seraphina, Template.characters.seraphina.pose.ill, Template.slideInAnimation(70, 100, 70, 200));
         Template.ƒS.Sound.fade(Template.sound.monsterScream, 0.5, 1);
         Template.ƒS.Sound.fade(Template.sound.battle, 0.3, 1);
@@ -1304,11 +1315,12 @@ var Template;
             Template.ƒS.Inventory.add(Template.items.golden_comb);
         }
         Template.ƒS.Sound.fade(Template.sound.atmo1, 0.0, 1);
-        Template.ƒS.Sound.fade(Template.sound.ritual, 0.9, 1);
+        Template.ƒS.Sound.fade(Template.sound.ritual, 0.9, 1, true);
         //ƒS.Speech.hide();
-        await Template.ƒS.Speech.tell(Template.characters.char1, "Try to calm her down");
+        await Template.ƒS.Location.show(Template.locations.insideFamilyHouse);
         await Template.ƒS.Character.animate(Template.characters.char1, Template.characters.char1.pose.normal, Template.slideInAnimation(25, 100, 10, 100));
         await Template.ƒS.Character.animate(Template.characters.protagonist, Template.characters.protagonist.pose.normal, Template.slideInAnimation(15, 100, 25, 100));
+        await Template.ƒS.Speech.tell(Template.characters.char1, "Try to calm her down");
         //////////////////////////////////////////////////////////////////////////
         let i = 0;
         while (true) {
@@ -1348,7 +1360,8 @@ var Template;
         ////////////////////////////////////////////////////////////////////////
         await Template.ƒS.Speech.tell(Template.characters.narrator, "What was the unusual thing on that day?      ");
         let input = await Template.ƒS.Speech.getInput();
-        if (input.includes("blood moon") || input.includes("red moon") || input.includes("moon constellation") || input.includes("blut mond") || input.includes("red")) {
+        if (input.includes("blood moon") || input.includes("red moon") || input.includes("moon constellation") || input.includes("blut mond") || input.includes("red")
+            || input.includes("Blood Moon") || input.includes("Blood moon") || input.includes("blood Moon") || input.includes("moon")) {
             await Template.ƒS.Speech.tell(Template.characters.narrator, "correct");
             succes++;
         }

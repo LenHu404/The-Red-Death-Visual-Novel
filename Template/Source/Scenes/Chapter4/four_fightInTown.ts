@@ -68,6 +68,8 @@ namespace Template {
 
     }
     ƒS.Sound.fade(sound.atmo1, 0.0, 1);
+    ƒS.Sound.fade(sound.ritual, 0.0, 1);
+
 
     await ƒS.Character.animate(characters.seraphina, characters.seraphina.pose.ill, slideInAnimation(70, 100, 70, 200));
     ƒS.Sound.fade(sound.monsterScream, 0.5, 1);

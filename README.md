@@ -7,6 +7,10 @@ Konzept: https://github.com/LenHu404/The-Red-Death-Visual-Novel/tree/main/Konzep
 
 Zip/RaR: 
 
+## Steuerung
+I: Öffnet den Rucksack mit den Gegenständen
+M: Menü zum Speichern und Laden
+
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU  
 

@@ -14,16 +14,17 @@ namespace Template {
     if (dataForSave.gotComb && ƒS.Inventory.getAmount(items.golden_comb) == 0) {
       ƒS.Inventory.add(items.golden_comb);
     }
+
     ƒS.Sound.fade(sound.atmo1, 0.0, 1,);
 
 
-    ƒS.Sound.fade(sound.ritual, 0.9, 1,);
+    ƒS.Sound.fade(sound.ritual, 0.9, 1, true);
 
     //ƒS.Speech.hide();
-    await ƒS.Speech.tell(characters.char1, "Try to calm her down");
-
+    await ƒS.Location.show(locations.insideFamilyHouse);
     await ƒS.Character.animate(characters.char1, characters.char1.pose.normal, slideInAnimation(25, 100, 10, 100));
     await ƒS.Character.animate(characters.protagonist, characters.protagonist.pose.normal, slideInAnimation(15, 100, 25, 100));
+    await ƒS.Speech.tell(characters.char1, "Try to calm her down");
 
     //////////////////////////////////////////////////////////////////////////
 
@@ -74,7 +75,8 @@ namespace Template {
 
     let input = await ƒS.Speech.getInput();
 
-    if (input.includes("blood moon") || input.includes("red moon") || input.includes("moon constellation") || input.includes("blut mond") || input.includes("red")) {
+    if (input.includes("blood moon") || input.includes("red moon") || input.includes("moon constellation") || input.includes("blut mond") || input.includes("red")
+    || input.includes("Blood Moon") || input.includes("Blood moon") || input.includes("blood Moon") || input.includes("moon")) {
       await ƒS.Speech.tell(characters.narrator, "correct");
       succes++;
 

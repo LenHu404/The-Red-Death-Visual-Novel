@@ -185,6 +185,7 @@ declare namespace Template {
             name: string;
             description: string;
             image: string;
+            static: boolean;
         };
         golden_comb: {
             name: string;

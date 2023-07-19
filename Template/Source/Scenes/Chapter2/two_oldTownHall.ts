@@ -2,6 +2,7 @@ namespace Template {
   
   let looking = true;
   let looking2 = true;
+  let gotCal = false;
   let goNext = false;
   let timer = 0;
   let time = 5;
@@ -133,6 +134,10 @@ namespace Template {
       }
 
     }
+
+    if (!gotCal){
+      removeCalenderClick();
+    }
     
     await ƒS.Speech.tell(characters.protagonist, "Lets put it in my backpack and head back.");
     
@@ -159,6 +164,7 @@ namespace Template {
   }
 
   async function getCalendar(): Promise<void> {
+    gotCal = true;
     ƒS.Inventory.add(items.birth_certificate);
     document.querySelector("scene").removeChild(calendar);
     document.getElementById("oldCal").style.zIndex = "2"; 
@@ -182,5 +188,9 @@ namespace Template {
   function remove2(): void {
     document.getElementById("oldCal").style.zIndex = "-1";
     looking2 = false;
+  }
+
+  function removeCalenderClick(): void {
+    document.querySelector("scene").removeChild(calendar);
   }
 }
