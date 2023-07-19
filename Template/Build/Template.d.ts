@@ -235,9 +235,6 @@ declare namespace Template {
     function three_insideFamilyHouse(): ƒS.SceneReturn;
 }
 declare namespace Template {
-    function three_villageEntrance(): ƒS.SceneReturn;
-}
-declare namespace Template {
     enum resultFight {
         won = 0,
         killedHer = 1,

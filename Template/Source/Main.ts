@@ -68,7 +68,7 @@ namespace Template {
     femaleDeatchCry: "../Audio/femaleDeathCry.mp3",
     femaleCrying: "../Audio/femaleCrying.mp3",
     vicotrySound: "../Audio/victorySound.mp3",
-    horseRiding: "..Audio/horseRiding.mp3"
+    horseRiding: "../Audio/horseRiding.mp3"
 
 
   };

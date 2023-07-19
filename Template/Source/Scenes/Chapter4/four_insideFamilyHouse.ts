@@ -14,8 +14,10 @@ namespace Template {
     if (dataForSave.gotComb && ƒS.Inventory.getAmount(items.golden_comb) == 0) {
       ƒS.Inventory.add(items.golden_comb);
     }
+    ƒS.Sound.fade(sound.atmo1, 0.0, 1,);
 
-    ƒS.Sound.fade(sound.atmo1, 0.05, 1, true);
+
+    ƒS.Sound.fade(sound.ritual, 0.9, 1,);
 
     //ƒS.Speech.hide();
     await ƒS.Speech.tell(characters.char1, "Try to calm her down");

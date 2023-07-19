@@ -49,108 +49,6 @@ namespace Template {
         T0002: "",
       }
     };
-    let text1 = {
-      narrator: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-
-      },
-      char1: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-        T0007: "",
-        T0008: "",
-        T0009: "",
-        T0010: "",
-        T0011: "",
-
-      },
-      protagonist: {
-        T0000: "No we have to do it now!",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-
-      }
-    };
-    let text2 = {
-      narrator: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-
-      },
-      char1: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-        T0007: "",
-        T0008: "",
-        T0009: "",
-        T0010: "",
-        T0011: "",
-
-      },
-      protagonist: {
-        T0000: "Maybe if we wait the symptons will simply weaken and go away",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-
-      }
-    };
-    let text3 = {
-      narrator: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-
-      },
-      char1: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-        T0007: "",
-        T0008: "",
-        T0009: "",
-        T0010: "",
-        T0011: "",
-
-      },
-      protagonist: {
-        T0000: "",
-        T0001: "",
-        T0002: "",
-        T0003: "",
-        T0004: "",
-        T0005: "",
-        T0006: "",
-
-      }
-    };
 
 
     let dialogue = {
@@ -177,6 +75,7 @@ namespace Template {
     await ƒS.Speech.tell(characters.char1, text.char1.T0001);
 
     await ƒS.Character.animate(characters.seraphina, characters.seraphina.pose.ill, slideInAnimation(100, 100, 75, 100));
+    ƒS.Sound.fade(sound.femaleCrying, 0.2, 1);
     await ƒS.Speech.tell(characters.seraphina, text.seraphina.T0000);
     await ƒS.Speech.tell(characters.char1, text.char1.T0002);
     await ƒS.Speech.tell(characters.char1, text.char1.T0003);
