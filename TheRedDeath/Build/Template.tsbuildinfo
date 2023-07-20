@@ -1,0 +1,70 @@
+{
+  "bundle": {
+    "commonSourceDirectory": "..",
+    "sourceFiles": [
+      "../Source/Main.ts",
+      "../Source/Definitons/Dialog.ts",
+      "../Source/Scenes/Chapter1/one_familyHouse.ts",
+      "../Source/Scenes/Chapter1/one_villageEntrance.ts",
+      "../Source/Scenes/Chapter2/two_abandonedHouse.ts",
+      "../Source/Scenes/Chapter2/two_oldTownHall.ts",
+      "../Source/Scenes/Chapter2/two_villageEntrance.ts",
+      "../Source/Scenes/Chapter3/three_insideFamilyHouse.ts",
+      "../Source/Scenes/Chapter4/four_fightInTown.ts",
+      "../Source/Scenes/Chapter4/four_insideFamilyHouse.ts",
+      "../Source/Scenes/Chapter5/five_villageEntrance.ts",
+      "../Source/Scenes/EndScenes/end.ts",
+      "../Source/Scenes/EndScenes/end_five.ts",
+      "../Source/Scenes/EndScenes/end_four.ts",
+      "../Source/Scenes/EndScenes/end_one.ts",
+      "../Source/Scenes/EndScenes/end_seven.ts",
+      "../Source/Scenes/EndScenes/end_six.ts",
+      "../Source/Scenes/EndScenes/end_three.ts",
+      "../Source/Scenes/EndScenes/end_two.ts"
+    ],
+    "js": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 13,
+          "kind": "prologue",
+          "data": "use strict"
+        },
+        {
+          "pos": 15,
+          "end": 86812,
+          "kind": "text"
+        }
+      ],
+      "sources": {
+        "prologues": [
+          {
+            "file": 0,
+            "text": "",
+            "directives": [
+              {
+                "pos": -1,
+                "end": -1,
+                "expression": {
+                  "pos": -1,
+                  "end": -1,
+                  "text": "use strict"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "dts": {
+      "sections": [
+        {
+          "pos": 0,
+          "end": 6998,
+          "kind": "text"
+        }
+      ]
+    }
+  },
+  "version": "3.9.3"
+}
