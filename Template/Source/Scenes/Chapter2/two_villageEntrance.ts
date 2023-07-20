@@ -42,7 +42,7 @@ namespace Template {
       },
       protagonist: {
         T0000: "I got an old golden comb from the old house. I hope this will work.",
-        T0001: "Alright, i guess there is no point in waisting time."
+        T0001: "Alright, i guess there is no point in wasting time."
 
       }
     };

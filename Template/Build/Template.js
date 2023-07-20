@@ -449,7 +449,7 @@ var Template;
         };
         let WhichItem = {
             certificate: "Get the birth certificate.",
-            oldHouse: "Go to the old house."
+            oldHouse: "Get the old item."
         };
         await Template.ƒS.Character.hide(Template.characters.protagonist);
         Template.ƒS.Speech.hide();
@@ -533,7 +533,7 @@ var Template;
                 T0002: "My apologies for the urgency, but it is my daughter. She suffers from the red death, a terrible ailment that has plagued her for months. I fear her condition is worsening, and I am desperate to find a cure.",
                 T0003: "The red death is a mysterious illness that afflicts the body, turning the skin as red as ember. It weakens its victims, draining their life force until there is nothing left. I've sought healers, herbalists, anyone who could aid her, but all in vain.",
                 T0004: "There is a way to help her but we don't have the necessary items.",
-                T0005: "And to get them you have to face some dark creatures and decieving riddles.",
+                T0005: "And to get them and use it in the correct way is to hard for me.",
                 T0006: "Oh thank you kind sir!",
                 T0007: "My name is Owen and what is your name?",
                 T0008: "Be praised...",
@@ -546,7 +546,7 @@ var Template;
                 T0000: "What troubles you, old man?",
                 T0001: "Why do you seem so distressed?",
                 T0002: "The red death? I've heard whispers of such a disease. Tell me more about it, old man.",
-                T0003: "I understand your desperation, and I sympathize with your plight. What makes you believe I can help?  ",
+                T0003: "I understand your desperation, and I sympathize with your plight.",
                 T0004: "Point me to where i can start.",
                 T0005: "I am sorry but i cant do this. I have a more urgent matter to attend to. ",
                 T0006: "I wish you all best of luck.",
@@ -945,7 +945,7 @@ var Template;
             },
             protagonist: {
                 T0000: "I got an old golden comb from the old house. I hope this will work.",
-                T0001: "Alright, i guess there is no point in waisting time."
+                T0001: "Alright, i guess there is no point in wasting time."
             }
         };
         let text3 = {
@@ -1432,7 +1432,7 @@ var Template;
         Template.ƒS.Character.hideAll();
         await Template.ƒS.Location.show(Template.locations.blackScreen);
         await Template.ƒS.update();
-        alert("Press 'F5' to play again! Maybe you will get a different edning?!");
+        alert("Press 'F5' to play again! Maybe you will get a different ending?!");
     }
     Template.end = end;
 })(Template || (Template = {}));

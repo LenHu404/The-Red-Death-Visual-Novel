@@ -47,7 +47,7 @@ namespace Template {
 
     let WhichItem = {
       certificate: "Get the birth certificate.",
-      oldHouse: "Go to the old house."
+      oldHouse: "Get the old item."
     };
 
     await ƒS.Character.hide(characters.protagonist);
