@@ -5,7 +5,7 @@ Ein Visual Novel erstellt in einem Wahlpflichtfach an der HFU.
 
 - Konzept: https://github.com/LenHu404/The-Red-Death-Visual-Novel/tree/main/Konzept
 
-- Zip/RaR: https://1drv.ms/u/s!Apkox7XXqmWhjqIKchefngwoTJ-LxA?e=3AIKMn
+- Zip/RaR: https://1drv.ms/u/s!Apkox7XXqmWhjqIKchefngwoTJ-LxA?e=BZQ86F
 
 ## Steuerung
 - I: Öffnet den Rucksack mit den Gegenständen
