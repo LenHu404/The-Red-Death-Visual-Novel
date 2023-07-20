@@ -8,8 +8,8 @@ Ein Visual Novel erstellt in einem Wahlpflichtfach an der HFU.
 - Zip/RaR: https://1drv.ms/u/s!Apkox7XXqmWhjqIKchefngwoTJ-LxA?e=FU1BHg
 
 ## Steuerung
-I: Öffnet den Rucksack mit den Gegenständen
-M: Menü zum Speichern und Laden
+- I: Öffnet den Rucksack mit den Gegenständen
+- M: Menü zum Speichern und Laden
 
 ## Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU  
