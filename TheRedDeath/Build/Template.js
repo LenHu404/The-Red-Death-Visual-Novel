@@ -35,7 +35,7 @@ var Template;
         },
         swirl: {
             duration: 1,
-            alpha: "../Transitionsswirl.png",
+            alpha: "../Transitions/swirl.png",
             edge: 1
         },
         test: {
